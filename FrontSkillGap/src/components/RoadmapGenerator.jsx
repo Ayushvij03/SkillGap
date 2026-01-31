@@ -12,7 +12,7 @@ export default function RoadmapGenerator() {
 
     setLoading(true);
 
-    const res = await fetch("http://localhost:5000/api/generate-roadmap/generate", {
+    const res = await fetch("https://skillgap-53du.onrender.com/api/generate-roadmap/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: role }),
@@ -32,7 +32,7 @@ export default function RoadmapGenerator() {
     const confirmSave = window.confirm("Save roadmap?");
     if (!confirmSave) return;
 
-    await fetch("http://localhost:5000/api/generate-roadmap/save", {
+    await fetch("https://skillgap-53du.onrender.com/api/generate-roadmap/save", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(roadmap),

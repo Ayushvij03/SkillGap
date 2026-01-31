@@ -12,7 +12,7 @@ export default function PrivateRoute({ children }) {
       return;
     }
 
-    fetch("http://localhost:5000/api/auth/me", {
+    fetch("https://skillgap-53du.onrender.com/api/auth/me", {
       headers: { Authorization: token }
     })
       .then(res => res.ok ? setValid(true) : setValid(false))

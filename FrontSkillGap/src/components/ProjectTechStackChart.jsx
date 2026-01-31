@@ -17,7 +17,7 @@ export default function ProjectTechStackChart() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/skill-analytics/projects-summary", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/projects-summary", {
       headers: { Authorization: token }
     })
       .then(res => res.json())

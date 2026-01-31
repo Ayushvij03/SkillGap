@@ -15,7 +15,7 @@ export default function SkillRadarChart() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/skill-analytics/skills", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/skills", {
       headers: { Authorization: token }
     })
       .then(res => res.json())

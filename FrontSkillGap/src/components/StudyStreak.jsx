@@ -7,7 +7,7 @@ export default function StudyStreak() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/skill-analytics/streak", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/streak", {
       headers: { Authorization: token }
     })
       .then(res => res.json())

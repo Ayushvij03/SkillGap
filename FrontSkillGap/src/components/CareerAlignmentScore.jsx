@@ -9,7 +9,7 @@ export default function CareerAlignmentScore() {
     const token = localStorage.getItem("token");
 
     // Roadmap ID = 1 (Frontend)
-    fetch("http://localhost:5000/api/skill-analytics/career-alignment/1", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/career-alignment/1", {
       headers: { Authorization: token }
     })
       .then(res => res.json())

@@ -6,7 +6,7 @@ export default function SkillGapAnalyzer() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/skill-analytics/skill-gap", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/skill-gap", {
       headers: { Authorization: token }
     })
       .then(res => res.json())
