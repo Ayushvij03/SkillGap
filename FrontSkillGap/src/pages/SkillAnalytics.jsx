@@ -28,14 +28,14 @@ export default function SkillAnalytics() {
     const token = localStorage.getItem("token");
 
     // ================= KPI SUMMARY =================
-    fetch("http://localhost:5000/api/skill-analytics/skills-summary", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/skills-summary", {
       headers: { Authorization: token }
     })
       .then(res => res.json())
       .then(setSummary);
 
     // ================= RADAR DATA =================
-    fetch("http://localhost:5000/api/skill-analytics/skills", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/skills", {
       headers: { Authorization: token }
     })
       .then(res => res.json())
@@ -48,7 +48,7 @@ export default function SkillAnalytics() {
       });
 
     // ================= TIMELINE DATA =================
-    fetch("http://localhost:5000/api/skill-analytics/activity-timeline", {
+    fetch("https://skillgap-53du.onrender.com/api/skill-analytics/activity-timeline", {
       headers: { Authorization: token }
     })
       .then(res => res.json())

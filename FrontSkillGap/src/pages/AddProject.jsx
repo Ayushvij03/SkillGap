@@ -16,7 +16,7 @@ export default function AddProject() {
   // GET PROJECTS
   const fetchProjects = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/projects", {
+    const res = await fetch("https://skillgap-53du.onrender.com/api/projects", {
       headers: { Authorization: token }
     });
     const data = await res.json();
@@ -28,7 +28,7 @@ export default function AddProject() {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    await fetch("http://localhost:5000/api/projects", {
+    await fetch("https://skillgap-53du.onrender.com/api/projects", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function AddProject() {
   // DELETE PROJECT
   const deleteProject = async (id) => {
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:5000/api/projects/${id}`, {
+    await fetch(`https://skillgap-53du.onrender.com/api/projects/${id}`, {
       method: "DELETE",
       headers: { Authorization: token }
     });
@@ -65,7 +65,7 @@ export default function AddProject() {
   const updateProject = async () => {
     const token = localStorage.getItem("token");
 
-    await fetch(`http://localhost:5000/api/projects/${editProject.id}`, {
+    await fetch(`https://skillgap-53du.onrender.com/api/projects/${editProject.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

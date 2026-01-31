@@ -14,7 +14,7 @@ export default function AddSkill() {
   // GET SKILLS
   const fetchSkills = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/skills", {
+    const res = await fetch("https://skillgap-53du.onrender.com/api/skills", {
       headers: { Authorization: token }
     });
     const data = await res.json();
@@ -26,7 +26,7 @@ export default function AddSkill() {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    await fetch("http://localhost:5000/api/skills", {
+    await fetch("https://skillgap-53du.onrender.com/api/skills", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function AddSkill() {
   const deleteSkill = async (id) => {
     const token = localStorage.getItem("token");
 
-    await fetch(`http://localhost:5000/api/skills/${id}`, {
+    await fetch(`https://skillgap-53du.onrender.com/api/skills/${id}`, {
       method: "DELETE",
       headers: { Authorization: token }
     });
@@ -57,7 +57,7 @@ export default function AddSkill() {
   const updateSkill = async () => {
     const token = localStorage.getItem("token");
 
-    await fetch(`http://localhost:5000/api/skills/${editSkill.id}`, {
+    await fetch(`https://skillgap-53du.onrender.com/api/skills/${editSkill.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

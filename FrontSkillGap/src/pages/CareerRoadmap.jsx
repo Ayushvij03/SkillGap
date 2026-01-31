@@ -15,7 +15,7 @@ export default function CareerRoadmap() {
   const fetchRoadmap = async () => {
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`http://localhost:5000/api/roadmap/${role}`, {
+    const res = await fetch(`https://skillgap-53du.onrender.com/api/roadmap/${role}`, {
       headers: { Authorization: token }
     });
 
@@ -29,7 +29,7 @@ export default function CareerRoadmap() {
   const toggleStep = async (step) => {
     const token = localStorage.getItem("token");
 
-    await fetch("http://localhost:5000/api/roadmap/complete", {
+    await fetch("https://skillgap-53du.onrender.com/api/roadmap/complete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
