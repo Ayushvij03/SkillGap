@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -36,29 +37,63 @@ export default function Login() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>Login</h2>
+  <div className="login-container">
+    <div className="login-box">
+
+      <div className="logo">
+        <div className="logo-icon">
+        <svg
+          viewBox="0 0 24 24"
+          width="26"
+          height="26"
+          fill="white"
+        >
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+        </svg>
+      </div>
+        <span>SkillGap</span>
+      </div>
+
+      <h1>Welcome back</h1>
+      <p className="subtitle">
+        Enter your credentials to access your account
+      </p>
 
       <form onSubmit={handleLogin}>
-        <input 
-          placeholder="Email" 
-          onChange={e => setEmail(e.target.value)} 
-          required
-        /><br />
 
-        <input 
-          type="password" 
-          placeholder="Password" 
-          onChange={e => setPassword(e.target.value)} 
-          required
-        /><br />
+        <label>Email</label>
+        <div className="input-group">
+          <span className="icon">📧</span>
+          <input
+            type="email"
+            placeholder="you@example.com"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-        <button type="submit">Login</button>
+        <label>Password</label>
+        <div className="input-group">
+          <span className="icon">🔒</span>
+          <input
+            type="password"
+            placeholder="••••••••"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="login-btn">
+          Sign in →
+        </button>
+
       </form>
 
-      <p>
+      <p className="register-text">
         New user? <Link to="/register">Register here</Link>
       </p>
+
     </div>
-  );
+  </div>
+);
 }

@@ -1,0 +1,150 @@
+.addskill-wrapper {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 50px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.addskill-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* FORM CARD */
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+  margin-bottom: 50px;
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-card input,
+.form-card select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+  outline: none;
+  border-color: #f97316;
+}
+
+.form-card button {
+  background: #f97316;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form-card button:hover {
+  background: #ea580c;
+}
+
+/* SKILLS */
+.skills-section h2 {
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e2e8f0;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level {
+  font-size: 12px;
+  background: #fff7ed;
+  color: #f97316;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  background: #e2e8f0;
+  height: 8px;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 8px;
+  background: #f97316;
+  border-radius: 6px;
+}
+
+.progress-text {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.edit {
+  background: #facc15;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.cancel {
+  background: #94a3b8;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}

@@ -189,8 +189,8 @@ export default function SkillAnalytics() {
 const card = {
   background: "#1f2937",
   color: "white",
-  padding: "15px",
-  borderRadius: "8px",
+  padding: "20px",
+  borderRadius: "12px",
   fontSize: "16px",
   minWidth: "180px",
   textAlign: "center",

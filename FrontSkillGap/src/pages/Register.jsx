@@ -20,25 +20,75 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <h2>Register Page</h2>
+  <div className="login-container">
+    <div className="login-box">
+
+      {/* Logo */}
+      <div className="logo">
+        <div className="logo-icon">
+          <svg
+            viewBox="0 0 24 24"
+            width="26"
+            height="26"
+            fill="white"
+          >
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+          </svg>
+        </div>
+        <span className="logo-text">SkillGap</span>
+      </div>
+
+      <h1>Create account</h1>
+      <p className="subtitle">
+        Start your journey by creating an account
+      </p>
 
       <form onSubmit={handleRegister}>
-        <input placeholder="Name" onChange={e => setName(e.target.value)} />
-        <br />
 
-        <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
-        <br />
+        <label>Name</label>
+        <div className="input-group">
+          <span className="icon">👤</span>
+          <input
+            type="text"
+            placeholder="Your full name"
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
 
-        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-        <br />
+        <label>Email</label>
+        <div className="input-group">
+          <span className="icon">📧</span>
+          <input
+            type="email"
+            placeholder="you@example.com"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-        <button type="submit">Register</button>
+        <label>Password</label>
+        <div className="input-group">
+          <span className="icon">🔒</span>
+          <input
+            type="password"
+            placeholder="••••••••"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="login-btn">
+          Create account →
+        </button>
+
       </form>
 
-      <p>
+      <p className="register-text">
         Already have account? <Link to="/login">Login here</Link>
       </p>
+
     </div>
-  );
+  </div>
+);
 }

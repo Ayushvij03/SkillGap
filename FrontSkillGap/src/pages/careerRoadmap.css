@@ -1,0 +1,156 @@
+.roadmap-wrapper {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.roadmap-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.roadmap-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.roadmap-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.roadmap-hero p {
+  color: #64748b;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.roadmap-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.roadmap-controls select {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.roadmap-controls button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.progress-container {
+  margin-bottom: 40px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 6px;
+}
+
+.progress-fill {
+  height: 10px;
+  background: #f97316;
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+/* TIMELINE */
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #e2e8f0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 18px;
+  height: 18px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-dot.done {
+  background: #22c55e;
+}
+
+.timeline-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.05);
+  transition: 0.2s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.15);
+}
+
+.timeline-card.completed {
+  border: 1px solid #22c55e;
+  background: #f0fdf4;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-card h3 {
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.timeline-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.resources {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #f97316;
+}

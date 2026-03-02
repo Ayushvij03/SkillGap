@@ -1,0 +1,142 @@
+.dashboard-wrapper {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 80px 0;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.dashboard-container {
+  max-width: 1000px;  /* controls card width */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HERO */
+.dashboard-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.dashboard-hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.dashboard-hero p {
+  color: #64748b;
+  font-size: 19px;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* SECTION */
+.dashboard-section {
+  margin-bottom: 30px;
+}
+
+.dashboard-section h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.dashboard-section p {
+  color: #64748b;
+}
+
+/* GRID */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 32px; /* more space between cards */
+  margin-top: 30px;
+}
+
+/* CARD */
+.dashboard-card {
+  background: white;
+  padding: 34px; /* increased padding */
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px; /* slightly taller */
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid #f97316;
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.15);
+}
+
+/* Highlight card */
+.dashboard-card.highlight {
+  border: 2px solid #f97316;
+}
+
+/* ICON */
+.card-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  transition: 0.25s ease;
+  color: #f97316;
+}
+
+.dashboard-card:hover .card-icon {
+  background: #f97316;
+  color: white;
+}
+
+/* TEXT */
+.dashboard-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.dashboard-card p {
+  font-size: 19px;
+  color: #64748b;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.card-link {
+  margin-top: auto;
+  color: #f97316;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.dashboard-card:hover .card-link {
+  opacity: 1;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./AddSkill.css";
 
 export default function AddSkill() {
   const [skill_name, setSkillName] = useState("");
@@ -11,7 +12,6 @@ export default function AddSkill() {
     fetchSkills();
   }, []);
 
-  // GET SKILLS
   const fetchSkills = async () => {
     const token = localStorage.getItem("token");
     const res = await fetch("https://skillgap-53du.onrender.com/api/skills", {
@@ -21,7 +21,6 @@ export default function AddSkill() {
     setSkills(data);
   };
 
-  // ADD SKILL
   const handleAddSkill = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -41,7 +40,6 @@ export default function AddSkill() {
     fetchSkills();
   };
 
-  // DELETE SKILL
   const deleteSkill = async (id) => {
     const token = localStorage.getItem("token");
 
@@ -53,7 +51,6 @@ export default function AddSkill() {
     fetchSkills();
   };
 
-  // UPDATE SKILL
   const updateSkill = async () => {
     const token = localStorage.getItem("token");
 
@@ -71,151 +68,141 @@ export default function AddSkill() {
   };
 
   return (
-    <div style={{ padding: "20px", color: "white" }}>
+    <div className="addskill-wrapper">
 
-      {/* ADD SKILL FORM */}
-      <h2>➕ Add Skill</h2>
+      <div className="addskill-container">
 
-      <form onSubmit={handleAddSkill} style={styles.form}>
-        <input
-          placeholder="Skill Name"
-          value={skill_name}
-          onChange={(e) => setSkillName(e.target.value)}
-          style={styles.input}
-        />
+        {/* FORM CARD */}
+        <div className="form-card">
+          <h2>Add New Skill</h2>
 
-        <select value={level} onChange={(e) => setLevel(e.target.value)} style={styles.input}>
-          <option value="">Select Level</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
+          <form onSubmit={handleAddSkill}>
 
-        <label>Progress: {progress}%</label>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={progress}
-          onChange={(e) => setProgress(e.target.value)}
-        />
+            <input
+              placeholder="Skill Name"
+              value={skill_name}
+              onChange={(e) => setSkillName(e.target.value)}
+              required
+            />
 
-        <button type="submit" style={styles.addBtn}>Add Skill</button>
-      </form>
+            <select
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+              required
+            >
+              <option value="">Select Level</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
 
-      {/* SKILL LIST */}
-      <h2 style={{ marginTop: "30px" }}>📋 Your Skills</h2>
+            <label>Progress: {progress}%</label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={progress}
+              onChange={(e) => setProgress(e.target.value)}
+            />
 
-      {skills.map(skill => (
-        <div key={skill.id} style={styles.card}>
+            <button type="submit">Add Skill</button>
 
-          {/* NORMAL VIEW */}
-          {editSkill?.id !== skill.id ? (
-            <>
-              <b>{skill.skill_name}</b> | {skill.level} | {skill.progress}%
-
-              <div style={styles.btnRow}>
-                <button onClick={() => setEditSkill(skill)} style={styles.editBtn}>Edit</button>
-                <button onClick={() => deleteSkill(skill.id)} style={styles.deleteBtn}>Delete</button>
-              </div>
-            </>
-          ) : (
-
-            /* EDIT MODE */
-            <div>
-              <input
-                value={editSkill.skill_name}
-                onChange={(e) => setEditSkill({ ...editSkill, skill_name: e.target.value })}
-                style={styles.input}
-              />
-
-              <select
-                value={editSkill.level}
-                onChange={(e) => setEditSkill({ ...editSkill, level: e.target.value })}
-                style={styles.input}
-              >
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
-              </select>
-
-              <label>Progress: {editSkill.progress}%</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={editSkill.progress}
-                onChange={(e) => setEditSkill({ ...editSkill, progress: e.target.value })}
-              />
-
-              <button onClick={updateSkill} style={styles.saveBtn}>Update</button>
-              <button onClick={() => setEditSkill(null)} style={styles.cancelBtn}>Cancel</button>
-            </div>
-          )}
+          </form>
         </div>
-      ))}
+
+        {/* SKILLS LIST */}
+        <div className="skills-section">
+          <h2>Your Skills</h2>
+
+          <div className="skills-grid">
+            {skills.map(skill => (
+              <div key={skill.id} className="skill-card">
+
+                {editSkill?.id !== skill.id ? (
+                  <>
+                    <div className="skill-header">
+                      <h3>{skill.skill_name}</h3>
+                      <span className="level">{skill.level}</span>
+                    </div>
+
+                    <div className="progress-bar">
+                      <div
+                        className="progress-fill"
+                        style={{ width: `${skill.progress}%` }}
+                      />
+                    </div>
+
+                    <div className="progress-text">
+                      {skill.progress}%
+                    </div>
+
+                    <div className="btn-row">
+                      <button
+                        className="edit"
+                        onClick={() => setEditSkill(skill)}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        className="delete"
+                        onClick={() => deleteSkill(skill.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="edit-mode">
+                    <input
+                      value={editSkill.skill_name}
+                      onChange={(e) =>
+                        setEditSkill({ ...editSkill, skill_name: e.target.value })
+                      }
+                    />
+
+                    <select
+                      value={editSkill.level}
+                      onChange={(e) =>
+                        setEditSkill({ ...editSkill, level: e.target.value })
+                      }
+                    >
+                      <option>Beginner</option>
+                      <option>Intermediate</option>
+                      <option>Advanced</option>
+                    </select>
+
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={editSkill.progress}
+                      onChange={(e) =>
+                        setEditSkill({ ...editSkill, progress: e.target.value })
+                      }
+                    />
+
+                    <div className="btn-row">
+                      <button className="save" onClick={updateSkill}>
+                        Update
+                      </button>
+
+                      <button
+                        className="cancel"
+                        onClick={() => setEditSkill(null)}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
-
-const styles = {
-  form: {
-    background: "#111827",
-    padding: "15px",
-    borderRadius: "8px",
-    width: "350px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px"
-  },
-  input: {
-    padding: "8px",
-    borderRadius: "5px",
-    border: "none"
-  },
-  addBtn: {
-    background: "#2563eb",
-    color: "white",
-    padding: "8px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer"
-  },
-  card: {
-    background: "#1f2937",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "6px",
-    width: "350px"
-  },
-  btnRow: {
-    marginTop: "8px"
-  },
-  editBtn: {
-    background: "orange",
-    border: "none",
-    padding: "5px",
-    marginRight: "5px",
-    cursor: "pointer"
-  },
-  deleteBtn: {
-    background: "red",
-    border: "none",
-    padding: "5px",
-    color: "white",
-    cursor: "pointer"
-  },
-  saveBtn: {
-    background: "green",
-    padding: "6px",
-    border: "none",
-    color: "white",
-    marginRight: "5px"
-  },
-  cancelBtn: {
-    background: "gray",
-    padding: "6px",
-    border: "none",
-    color: "white"
-  }
-};
